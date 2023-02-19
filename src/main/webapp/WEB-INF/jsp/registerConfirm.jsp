@@ -20,7 +20,7 @@ password：<%= registerUser.getPassword()%><br>
 password：<%= registerUser.getName()%><br>
 </p>
 <br>
-<a href="/Web/RegisterUser">戻る</a>
-<a href="/Web/RegisterUser?action=done">登録</a>
+<a href="/ControlUser/RegisterUser">戻る</a>
+<a href="/ControlUser/RegisterUser?action=done">登録</a>
 </body>
 </html>

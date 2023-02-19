@@ -10,7 +10,7 @@
 <body>
   <h1>アカウント登録フォーム</h1>
 
-	<form action="/Web/RegisterUser" method="post">
+	<form action="/ControlUser/RegisterUser" method="post">
 	 <table>
 	      <tr>
 	        <td>Email:</td>

@@ -64,7 +64,7 @@ public class RegisterUser extends HttpServlet {
             //登録後のフォワード先を設定
             forwardPath = "/WEB-INF/jsp/registerDone.jsp";
  
-        }
+    	}
  
         // 設定されたフォワード先を設定
         RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
@@ -86,7 +86,11 @@ public class RegisterUser extends HttpServlet {
         String name = request.getParameter("name");
  
         //登録するユーザの情報を設定
-        User registerUser = new User(email, password, name);
+        User registerUser = new User();
+        registerUser.setEmail(email);
+        registerUser.setPassword(password);
+        registerUser.setName(name);
+        
  
         //セッションスコープに登録ユーザを保存
         HttpSession session = request.getSession();

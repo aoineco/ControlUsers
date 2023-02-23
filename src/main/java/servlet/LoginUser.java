@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import dao.MemberDao;
 import jakarta.servlet.RequestDispatcher;
@@ -49,6 +50,7 @@ public class LoginUser extends HttpServlet {
         	HttpSession session = request.getSession();
         	String userRole = user.getRole();
         	System.out.println("userrole: " + userRole);
+        	System.out.println("test2");
             session.setAttribute("user", user);
             
             
@@ -56,9 +58,17 @@ public class LoginUser extends HttpServlet {
             if("user".equals(userRole)) {
             	forwardPath = "WEB-INF/jsp/loginSuccess.jsp";
             }else if("admin".equals(userRole)) {
-            	forwardPath = "/ControlUser/AdminServlet";
+            	
+                List<User> users = userDao.findAll();
+                for (User i : users) {
+                    System.out.println(i.getEmail());
+                }
+                System.out.println("test");
+                request.setAttribute("users", users);
+                forwardPath = "WEB-INF/jsp/admin.jsp";
             }
-            System.out.println(forwardPath);
+            //System.out.println(forwardPath);
+            System.out.println("test1");
             // ログイン成功画面へフォワード
             RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
             dispatcher.forward(request, response);

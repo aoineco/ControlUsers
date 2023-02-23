@@ -9,7 +9,7 @@ private static final long serialVersionUID = 1L;
     //フィールド
     private String email;
     private String name;
-    private String pass;
+    private String password;
     private String role;
  
     public String getName() {
@@ -25,10 +25,10 @@ private static final long serialVersionUID = 1L;
         this.email = email;
     }
     public String getPassword() {
-        return pass;
+        return password;
     }
     public void setPassword(String password) {
-        this.pass = password;
+        this.password = password;
     }
     public String getRole() {
         return role;
